@@ -97,4 +97,3 @@ mvn spring-boot:run
 
 ```
 
-## You should see:  Sending notification for event: <eventId>
