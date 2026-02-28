@@ -63,5 +63,38 @@ ACK
 
 ---
 
-## 📂 Project Structure
-<img width="624" height="478" alt="image" src="https://github.com/user-attachments/assets/f94af803-8979-4018-9249-c1f3ba6c70b7" />
+---
+
+## 🗄 Database Table
+
+### `processed_events`
+
+- id
+- event_id (UNIQUE)
+- processed_at
+
+---
+
+## 🔄 Processing Flow
+
+1. Read message from stream
+2. Extract eventId
+3. Attempt DB insert
+4. If duplicate → ignore
+5. If new → process notification
+6. ACK message
+
+---
+
+## ▶️ How To Run
+
+### 1️⃣ Ensure Redis Is Running
+
+```bash
+docker ps
+
+mvn spring-boot:run
+
+```
+
+## You should see:  Sending notification for event: <eventId>
